@@ -20,6 +20,7 @@ module App
     end
 
     config.hosts << '.example.com'
+    config.hosts << "dockerjjj.herokuapp.com"
 
     # Configuration for the application, engines, and railties goes here.
     #
