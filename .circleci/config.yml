@@ -34,9 +34,7 @@ jobs:
       - run:
           name: Database setup
           command: bundle exec rails db:migrate
-      - run:
-          name: yarn Install
-          command: yarn upgrade
+      
       - run: 
           name: webpack
           command: bundle exec bin/webpack
