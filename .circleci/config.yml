@@ -36,7 +36,7 @@ jobs:
           command: bundle exec rails db:migrate
       - run:
           name: yarn Install
-          command: curl -o- -L https://yarnpkg.com/install.sh | bash
+          command: npm i -g yarn
       - run: 
           name: webpack
           command: bundle exec bin/webpack
