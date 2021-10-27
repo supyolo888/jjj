@@ -6,15 +6,7 @@ RSpec.describe "StaticPages", type: :request do
 
   describe "GET root" do
     it "returns http success" do
-      get "/"
-      expect(response).to have_http_status(:success)
-      assert_select "title", "#{base_title}"
-    end
-  end
-
-  describe "GET /home" do
-    it "returns http success" do
-      get "/static_pages/home"
+      get root_path
       expect(response).to have_http_status(:success)
       assert_select "title", "#{base_title}"
     end
@@ -22,7 +14,7 @@ RSpec.describe "StaticPages", type: :request do
 
   describe "GET /help" do
     it "returns http success" do
-      get "/static_pages/help"
+      get help_path
       expect(response).to have_http_status(:success)
       assert_select "title", "Help | #{base_title}"
     end
@@ -30,7 +22,7 @@ RSpec.describe "StaticPages", type: :request do
 
   describe "GET /about" do
     it "returns http success" do
-      get "/static_pages/about"
+      get about_path
       expect(response).to have_http_status(:success)
       assert_select "title", "About | #{base_title}"
     end
