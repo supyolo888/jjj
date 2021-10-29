@@ -32,4 +32,5 @@ RSpec.feature "UsersSignups", type: :feature do
     expect(page).to have_current_path "/users/#{User.last.id}"
     expect(page).to have_content("Welcome to the Sample App!")
   end
+
 end
