@@ -1,0 +1,24 @@
+Dropped database 'db'
+Dropped database 'app_test'
+Created database 'db'
+Created database 'app_test'
+== 20211025152057 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0717s
+== 20211025152057 CreateUsers: migrated (0.0748s) =============================
+
+== 20211027140633 AddIndexToUsersEmail: migrating =============================
+-- add_index(:users, :email, {:unique=>true})
+   -> 0.0440s
+== 20211027140633 AddIndexToUsersEmail: migrated (0.0461s) ====================
+
+== 20211027141309 AddPasswordDigestToUsers: migrating =========================
+-- add_column(:users, :password_digest, :string)
+   -> 0.1128s
+== 20211027141309 AddPasswordDigestToUsers: migrated (0.1156s) ================
+
+== 20211031175135 AddRememberDigestToUsers: migrating =========================
+-- add_column(:users, :remember_digest, :string)
+   -> 0.0452s
+== 20211031175135 AddRememberDigestToUsers: migrated (0.0480s) ================
+
