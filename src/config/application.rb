@@ -18,8 +18,7 @@ module App
       routing_specs: false
     end
 
-    config.hosts << '.example.com'
-    config.hosts << "dockerjjj.herokuapp.com"
+    config.hosts.clear
 
     # Configuration for the application, engines, and railties goes here.
     #
