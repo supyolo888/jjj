@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "session request", type: :request do
+RSpec.describe "UsersSessions", type: :request do
 
   let(:user) {FactoryBot.create(:user)}
 
