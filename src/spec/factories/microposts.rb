@@ -21,10 +21,6 @@ FactoryBot.define do
       created_at{Time.zone.now}
     end
 
-    trait :microposts do
-      content {Faker::Lorem.sentence(word_count: 5)}
-    end
-
   end
 
 end

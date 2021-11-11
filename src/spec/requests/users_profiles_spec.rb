@@ -6,7 +6,9 @@ RSpec.describe "UsersProfiles", type: :request do
   let(:user) {FactoryBot.create(:user)}
 
   before do
-    40.times {FactoryBot.create(:micropost, :microposts)}
+    40.times do
+      user.microposts.create(content: Faker::Lorem.sentence(word_count: 5))
+    end
   end
 
   it "profile display" do
@@ -16,7 +18,7 @@ RSpec.describe "UsersProfiles", type: :request do
     assert_select "h1", text: user.name
     assert_select "h1>img.gravatar"
     assert_match user.microposts.count.to_s, response.body
-    #assert_select "div.pagination"
+    assert_select "div.pagination"
     user.microposts.paginate(page: 1).each do |micropost|
       assert_match micropost.content, response.body
     end
