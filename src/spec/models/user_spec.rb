@@ -78,4 +78,37 @@ RSpec.describe User, type: :model do
     expect(@user.authenticated?(:remember, '')).to be_falsy
   end
 
+  describe "relationships" do
+
+    let(:michael) { FactoryBot.create(:user) }
+    let(:archer) { FactoryBot.create(:user) }
+    let(:lana) { FactoryBot.create(:user) }
+
+    before do
+      michael.follow(lana)
+    end
+
+    it "should follow and unfollow a user" do
+      expect(michael.following?(archer)).to be_falsy
+      michael.follow(archer)
+      expect(michael.following?(archer)).to be_truthy
+      expect(archer.followers.include?(michael)).to be_truthy
+      michael.unfollow(archer)
+      expect(michael.following?(archer)).to be_falsy
+    end
+
+    it "feed should have the right posts" do  
+      lana.microposts.each do |post_following|
+        expect(michael.feed.include?(post_following)).to be_truthy
+      end
+      michael.microposts.each do |post_self|
+        expect(michael.feed.include?(post_self)).to be_truthy
+      end
+      archer.microposts.each do |post_unfollowed|
+        expect(michael.feed.include?(post_unfollowed)).to be_falsy
+      end
+    end
+
+  end
+
 end
