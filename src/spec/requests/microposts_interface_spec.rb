@@ -6,7 +6,7 @@ RSpec.describe "MicropostsInterface", type: :request do
   let!(:user1) { FactoryBot.create(:user) }
 
   before do
-    40.times do
+    35.times do
       user.microposts.create(content: Faker::Lorem.sentence(word_count: 5))
     end
   end
