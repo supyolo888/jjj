@@ -28,7 +28,7 @@ RSpec.describe "UsersSessions", type: :request do
     log_in_as(user, remember_me: "1")
     expect(cookies[:remember_token]).not_to eq ""
     delete logout_path
-    log_in_as(user, remember_me: '0')
+    log_in_as(user, remember_me: "0")
     expect(cookies[:remember_token]).to eq ""
   end
 

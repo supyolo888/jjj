@@ -13,6 +13,7 @@ FactoryBot.define do
     end
 
     trait :noactivated do
+      admin {false}
       activated {false}
       activated_at { nil }
     end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "StaticPages", type: :request do
 
-  let(:base_title) { 'Ruby on Rails Tutorial Sample App' }
+  let(:base_title) { "Ruby on Rails Tutorial Sample App" }
 
   describe "GET root" do
     it "returns http success" do

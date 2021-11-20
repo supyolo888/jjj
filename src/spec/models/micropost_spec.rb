@@ -6,28 +6,25 @@ RSpec.describe Micropost, type: :model do
   let!(:tau_manifesto) {FactoryBot.create(:micropost, :tau_manifesto)}
   let!(:cat_video) {FactoryBot.create(:micropost,:cat_video)}
   let!(:most_recent) {FactoryBot.create(:micropost,:most_recent)}
-
-  before do
-    @micropost = user.microposts.build(content: "Lorem ipsum")
-  end
+  let!(:micropost) {user.microposts.build(content: "Lorem ipsum")}
 
   it "should be valid" do
-    expect(@micropost).to be_valid
+    expect(micropost).to be_valid
   end
 
   it "user id should be present" do
-    @micropost.user_id = nil
-    expect(@micropost).to_not be_valid
+    micropost.user_id = nil
+    expect(micropost).to_not be_valid
   end
 
   it "content should be present" do
-    @micropost.content = "   "
-    expect(@micropost).to_not be_valid
+    micropost.content = "   "
+    expect(micropost).to_not be_valid
   end
 
   it "content should be at most 140 characters" do
-    @micropost.content = "a" * 141
-    expect(@micropost).to_not be_valid
+    micropost.content = "a" * 141
+    expect(micropost).to_not be_valid
   end
 
   it "order should be most recent first" do

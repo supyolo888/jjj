@@ -25,15 +25,15 @@ RSpec.describe "UsersLogins", type: :system do
     click_button "Log in"
     #is_logged_in?
     expect(page).to have_current_path user_path(user)
-    expect(page).to_not have_css("a", text: "Log in")
-    expect(page).to have_css("a", text: "Log out")
-    expect(page).to have_css("a", text: "Profile")
+    expect(page).to_not have_link href: login_path
+    expect(page).to have_link href: logout_path
+    expect(page).to have_link href: user_path(user)
     visit root_path
     click_on "Log out"
     expect(page).to have_current_path root_path
-    expect(page).to have_css("a", text: "Log in")
-    expect(page).to_not have_css("a", text: "Log out")
-    expect(page).to_not have_css("a", text: "Profile")
+    expect(page).to have_link href: login_path
+    expect(page).to_not have_link href: logout_path
+    expect(page).to_not have_link href: user_path(user)
   end
 
 end

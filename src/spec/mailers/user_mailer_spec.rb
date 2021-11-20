@@ -22,13 +22,13 @@ RSpec.describe UserMailer, type: :mailer do
   end
 
   describe "password_reset" do
-    
-    before do
-      user.reset_token = User.new_token
-    end
 
     let(:user) { FactoryBot.create(:user) }
     let(:mail) { UserMailer.password_reset(user) }
+
+    before do
+      user.reset_token = User.new_token
+    end
 
     it "renders the headers" do
       expect(mail.subject).to eq("Password reset")

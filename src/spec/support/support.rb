@@ -4,7 +4,7 @@ module Support
       !session[:user_id].nil?
   end
  
-  def log_in_as(user, remember_me: '1')
+  def log_in_as(user, remember_me: "1")
     post login_path, params: { session: {
       email: user.email,
       password: user.password,

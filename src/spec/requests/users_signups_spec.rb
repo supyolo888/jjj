@@ -25,7 +25,7 @@ RSpec.describe "UsersSignups", type: :request do
     expect(is_logged_in?).to be_falsy
     get edit_account_activation_path("invalid token", email: noactivateduser.email)
     expect(is_logged_in?).to be_falsy
-    get edit_account_activation_path(noactivateduser.activation_token, email: 'wrong')
+    get edit_account_activation_path(noactivateduser.activation_token, email: "wrong")
     expect(is_logged_in?).to be_falsy
     get edit_account_activation_path(noactivateduser.activation_token, email: noactivateduser.email)
     assert noactivateduser.reload.activated?
