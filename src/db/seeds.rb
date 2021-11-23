@@ -1,12 +1,21 @@
-# # ユーザー
-# User.create!(name:  "Example User",
-#   email: "example@railstutorial.org",
-#   password:              "foobar",
-#   password_confirmation: "foobar",
-#   image_name: "default_user.jpeg",
-#   admin:     true,
-#   activated: true,
-#   activated_at: Time.zone.now)
+# ユーザー
+User.create!(name:  "Example User",
+  email: "example@railstutorial.org",
+  password:              "foobar",
+  password_confirmation: "foobar",
+  image_name: "default_user.jpeg",
+  admin:     true,
+  activated: true,
+  activated_at: Time.zone.now)
+
+User.create!(name:  "Junya",
+  email: "supyolo888@ezweb.ne.jp",
+  password:              "Enjoytrip88",
+  password_confirmation: "Enjoytrip88",
+  image_name: "default_user.jpeg",
+  admin:     true,
+  activated: true,
+  activated_at: Time.zone.now)
 
 # 99.times do |n|
 # name  = Faker::Name.name
