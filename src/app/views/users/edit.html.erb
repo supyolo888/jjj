@@ -18,12 +18,16 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= image_tag @user.image_name, width: "100px", height: "100px", class:"icon"%>
+      
+      <% if @user.image? %>
+        <%= image_tag @user.image.url, width: "100px", height: "100px", class:"icon"%>
+      <% else%>
+        <%= image_tag "default_user.jpeg", width: "100px", height: "100px", class:"icon"%>
+      <% end %>
       <%= f.label :image, "Icon change" %>
       <%= f.file_field :image, class: 'form-control' %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
-
   </div>
 </div>
