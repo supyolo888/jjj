@@ -3,10 +3,11 @@ FactoryBot.define do
     name {"Michael Example"}
     sequence(:email) { |n| "test#{n}@example.com" } 
     password {"password"}
-    password_confirmation  {"password"}
+    password_confirmation {"password"}
     admin {true}
     activated {true}
     activated_at {Time.zone.now}
+    image_name {"default_user.jpeg"}
 
     trait :noadmin do
       admin {false}

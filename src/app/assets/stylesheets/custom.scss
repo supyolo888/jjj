@@ -131,15 +131,6 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-.gravatar_edit {
-  margin-top: 15px;
-}
-
 .stats {
   overflow: auto;
   margin-top: 0;
@@ -166,7 +157,7 @@ aside {
 .user_avatars {
   overflow: auto;
   margin-top: 10px;
-  .gravatar {
+  .icon {
     margin: 1px 1px;
   }
   a {
@@ -258,7 +249,7 @@ input {
     display: block;
     margin-left: 60px;
   }
-  .gravatar {
+  .icon {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
@@ -277,4 +268,11 @@ span.image {
   input {
     border: 0;
   }
+}
+
+.icon {
+  border-radius: 50%;
+  object-fit: cover;
+  float: left;
+  margin-right: 10px;
 }
