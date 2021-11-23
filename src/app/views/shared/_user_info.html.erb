@@ -1,4 +1,8 @@
-<%= link_to image_tag(current_user.image_name, width: "100px", height: "100px", class:"icon"), current_user%>
+<% if current_user.image? %>
+  <%= link_to image_tag(current_user.image.url, width: "100px", height: "100px", class:"icon"),current_user%>
+<% else%>
+  <%= link_to image_tag("default_user.jpeg", width: "100px", height: "100px", class:"icon"),current_user%>
+<% end %>
 <h1><%= current_user.name %></h1>
 <span><%= link_to "view my profile", current_user %></span>
 <span><%= pluralize(current_user.microposts.count, "micropost") %></span>

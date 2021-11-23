@@ -1,37 +1,43 @@
-# # ユーザー
-# User.create!(name:  "Example User",
-#   email: "example@railstutorial.org",
-#   password:              "foobar",
-#   password_confirmation: "foobar",
-#   image_name: "default_user.jpeg",
-#   admin:     true,
-#   activated: true,
-#   activated_at: Time.zone.now)
+# ユーザー
+User.create!(name:  "Example User",
+  email: "example@railstutorial.org",
+  password:              "foobar",
+  password_confirmation: "foobar",
+  admin:     true,
+  activated: true,
+  activated_at: Time.zone.now)
 
-# 99.times do |n|
-# name  = Faker::Name.name
-# email = "example-#{n+1}@railstutorial.org"
-# password = "password"
-# User.create!(name:  name,
-#     email: email,
-#     password:              password,
-#     password_confirmation: password,
-#     image_name: "default_user.jpeg",
-#     activated: true,
-#     activated_at: Time.zone.now)
-# end
+User.create!(name:  "Junya",
+  email: "supyolo888@ezweb.ne.jp",
+  password:              "Enjoytrip88",
+  password_confirmation: "Enjoytrip88",
+  admin:     true,
+  activated: true,
+  activated_at: Time.zone.now)
 
-# # マイクロポスト
-# users = User.order(:created_at).take(6)
-# 50.times do
-# content = Faker::Lorem.sentence(word_count: 5)
-# users.each { |user| user.microposts.create!(content: content) }
-# end
+99.times do |n|
+name  = Faker::Name.name
+email = "example-#{n+1}@railstutorial.org"
+password = "password"
+User.create!(name:  name,
+    email: email,
+    password:              password,
+    password_confirmation: password,
+    activated: true,
+    activated_at: Time.zone.now)
+end
 
-# # 以下のリレーションシップを作成する
-# users = User.all
-# user  = users.first
-# following = users[2..50]
-# followers = users[3..40]
-# following.each { |followed| user.follow(followed) }
-# followers.each { |follower| follower.follow(user) }
+# マイクロポスト
+users = User.order(:created_at).take(6)
+50.times do
+content = Faker::Lorem.sentence(word_count: 5)
+users.each { |user| user.microposts.create!(content: content) }
+end
+
+# 以下のリレーションシップを作成する
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

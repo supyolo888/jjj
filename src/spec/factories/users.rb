@@ -7,8 +7,6 @@ FactoryBot.define do
     admin {true}
     activated {true}
     activated_at {Time.zone.now}
-    image_name {"default_user.jpeg"}
-
     trait :noadmin do
       admin {false}
     end
