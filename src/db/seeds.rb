@@ -7,7 +7,7 @@ User.create!(name:  "Example User",
   activated: true,
   activated_at: Time.zone.now)
 
-User.create!(name:  "Junya",
+  User.create!(name:  "Junya",
   email: "supyolo888@ezweb.ne.jp",
   password:              "Enjoytrip88",
   password_confirmation: "Enjoytrip88",
