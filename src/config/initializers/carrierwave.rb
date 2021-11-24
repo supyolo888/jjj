@@ -9,7 +9,7 @@ if Rails.env.production?
       provider: 'AWS',
       region: ENV['AWS_REGION'],
       aws_access_key_id: ENV['AWS_ACCESS_KEY'],
-      aws_secret_access_key: ENV['AWS_SECRET_KEY']
+      aws_secret_access_key: ENV['AWS_SECRET_KEY'],
       path_style: true
     }
   end
