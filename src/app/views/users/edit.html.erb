@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(model: @user, local: true, multipart: true) do |f| %>
+    <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
@@ -17,13 +17,13 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-
       
       <% if @user.avatar? %>
         <%= image_tag @user.avatar.url, width: "100px", height: "100px", class:"icon"%>
       <% else%>
         <%= image_tag "default_user.jpeg", width: "100px", height: "100px", class:"icon"%>
       <% end %>
+      
       <%= f.label :avatar, "Icon change" %>
       <%= f.file_field :avatar, class: 'form-control' %>
 
