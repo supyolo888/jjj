@@ -9,6 +9,9 @@ class Micropost < ApplicationRecord
                       size:         { less_than: 5.megabytes,
                                       message: "should be less than 5MB" }
 
+  has_many :favorites, dependent: :destroy
+  has_many :liked_by, through: :favorites, source: :user
+
   # 表示用のリサイズ済み画像を返す
   def display_image
     image.variant(resize_to_limit: [500, 500])
