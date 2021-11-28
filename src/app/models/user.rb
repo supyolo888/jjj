@@ -21,6 +21,9 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  has_many :favorites, dependent: :destroy
+  has_many :likes, through: :favorites, source: :micropost
+
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -100,6 +103,21 @@ class User < ApplicationRecord
   # 現在のユーザーがフォローしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  # マイクロポストをライクする
+  def like(micropost)
+    likes << micropost
+  end
+  
+  # マイクロポストをライク解除する
+  def unlike(micropost)
+    favorites.find_by(micropost_id: micropost.id).destroy
+  end
+  
+  # 現在のユーザーがライクしていたらtrueを返す
+  def likes?(micropost)
+    likes.include?(micropost)
   end
 
   private
