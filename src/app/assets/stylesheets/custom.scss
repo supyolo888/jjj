@@ -289,3 +289,25 @@ span.image {
   position: relative;
   left: 60px;
 }
+
+/* search_form */
+
+.search_form {
+  overflow: auto;
+  margin: 10px;
+  float: left;
+  .input-group {
+    width: 300px;
+    .form-control {
+      width: 250px;
+    }
+    .btn {
+      width: 50px;
+    }
+  }
+}
+.search_message {
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 1.3em;
+}
