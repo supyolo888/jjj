@@ -1,6 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
+@import '@fortawesome/fontawesome-free/scss/brands';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
@@ -66,7 +73,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: rgb(195, 195, 195);
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -270,11 +277,14 @@ span.image {
   }
 }
 
+/* icon */
+
 .icon {
   border-radius: 50%;
   object-fit: cover;
   float: left;
   margin-right: 10px;
+  border: solid 1px rgb(219, 219, 219);
 }
 
 /* likes */
@@ -310,4 +320,44 @@ span.image {
   margin-top: 30px;
   font-weight: bold;
   font-size: 1.3em;
+}
+
+/* Font Awesome */
+
+.fa-users {
+  font-size: 20px;
+  color: rgb(195, 195, 195);
+  :hover {
+    color: white;
+  }
+}
+
+.fa-home {
+  font-size: 20px;
+  color: rgb(195, 195, 195);
+  :hover {
+    color: white;
+  }
+}
+
+.iconheader {
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.caret {
+  size: 15px;
+  margin-top: 25px;
+  color: rgb(219, 219, 219);
+  margin-left: -5px;
+}
+
+.dropdown-toggle:hover {
+  .iconheader {
+    border: solid 1.5px rgba(34,49,52,0.9);
+  }
+}
+
+.navbar-fixed-top {
+  background-color:rgba(34,49,52,0.9);
 }
