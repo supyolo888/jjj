@@ -8,8 +8,12 @@
 
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
+    <div>
+    <%if micropost.image.attached?%>
+      <video src="<%= rails_blob_path(micropost.image) %>" type="video/mp4" controls class="video" width=500px; ></video>
+    <%end%>
+    </div>
     <%= micropost.content %>
-    <%= image_tag micropost.display_image if micropost.image.attached? %>
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
