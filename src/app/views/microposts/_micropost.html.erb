@@ -10,7 +10,7 @@
   <span class="content">
     <div>
     <%if micropost.image.attached?%>
-      <video src="<%= rails_blob_path(micropost.image) %>" type="video/mp4" controls class="video" width=1000px; autoplay=true, muted=true, playsinline=true></video>
+      <video src="<%= rails_blob_path(micropost.image) %>" type="video/mp4" class="video" autoplay=true, muted=true, playsinline=true preload="none"></video>
     <%end%>
     </div>
     <%= micropost.content %>
