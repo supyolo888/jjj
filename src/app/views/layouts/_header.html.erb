@@ -3,23 +3,23 @@
     <%= link_to "sample app", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to root_path do%>
-            <i class="fas fa-home"></i>
-          <% end %>
-        </li>
         <% if logged_in? %>
+          <li>
+            <%= link_to root_path do%>
+              <i class="fas fa-home"></i>
+            <% end %>
+          </li>
           <li>
             <%= link_to users_path do %>
               <i class="fas fa-users"></i>
             <% end %>
           </li>
           <li >
-            <div class="dropdown-toggle" data-toggle="dropdown">
+            <div class="dropdown-toggle" data-toggle="dropdown" tabindex="-1">
               <% if current_user.avatar? %>
-                <%= image_tag(current_user.avatar.url, width: "30px", height: "30px", class:"icon iconheader")%>
+                <%= image_tag(current_user.avatar.url, width: "35px", height: "35px", class:"icon iconheader")%>
               <% else%>
-                <%= image_tag("default_user.jpeg", width: "30px", height: "30px", class:"icon iconheader")%>
+                <%= image_tag("default_user.jpeg", width: "35px", height: "35px", class:"icon iconheader")%>
               <% end %>
               <b class="caret"></b>
             </div>
@@ -36,12 +36,12 @@
               </li>
               <li class="divider"></li> 
               <li> 
-                <%= link_to "Log out", logout_path, method: :delete %>
+                <%= link_to logout_path, method: :delete do%>
+                  <i class="fas fa-sign-out-alt"></i> &nbsp;&nbsp; Log out
+                <%end%>
               </li>
             </ul>
           </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
     </nav>

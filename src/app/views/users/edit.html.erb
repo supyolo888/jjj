@@ -19,12 +19,12 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       
       <% if @user.avatar? %>
-        <%= image_tag @user.avatar.url, width: "100px", height: "100px", class:"icon"%>
+        <%= image_tag @user.avatar.url, width: "100px", height: "100px", class:"icon iconedit"%>
       <% else%>
-        <%= image_tag "default_user.jpeg", width: "100px", height: "100px", class:"icon"%>
+        <%= image_tag "default_user.jpeg", width: "100px", height: "100px", class:"icon iconedit"%>
       <% end %>
       
-      <%= f.label :avatar, "Icon change" %>
+      <%= f.label :avatar, "Icon change", class:"iconchange" %>
       <%= f.file_field :avatar, class: 'form-control' %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
