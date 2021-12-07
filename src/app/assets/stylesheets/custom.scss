@@ -361,7 +361,7 @@ span.image {
   color: rgb(195, 195, 195);
   display: block;
   :hover {
-    color: white;
+    color: rgb(255, 255, 255);
   }
 }
 
@@ -372,6 +372,35 @@ span.image {
   :hover {
     color: white;
   }
+}
+
+.fa-play {
+  font-size: 70px;
+  color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.6s
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.none {
+  display: none;
+}
+
+.video {
+  width:100%;
+}
+.playbtn {
+  position: relative;
 }
 
 .iconheader {
@@ -399,9 +428,6 @@ span.image {
 
 .navbar-fixed-top {
   background-color:rgba(34,49,52,0.9);
-}
-.video {
-  width:1000px
 }
 
 @media (max-width: 639px) {

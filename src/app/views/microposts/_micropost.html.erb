@@ -8,11 +8,17 @@
 
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
-    <div>
-    <%if micropost.image.attached?%>
-      <video src="<%= rails_blob_path(micropost.image) %>" type="video/mp4" class="video" autoplay=true, muted=true, playsinline=true preload="none"></video>
-    <%end%>
+
+  <%if micropost.image.attached?%>
+    <div class="playbtn" >
+        <video src="<%= rails_blob_path(micropost.image) %>" class="video" playsinline loop preload="metadata">
+        </video>
+          <div class="play">
+            <i class="fas fa-play"></i>
+          </div>
     </div>
+  <%end%>
+
     <%= micropost.content %>
   </span>
   <span class="timestamp">
@@ -29,3 +35,4 @@
     <% end %>
   </span>
 </li>
+<%= javascript_pack_tag 'micropost/application'%>
