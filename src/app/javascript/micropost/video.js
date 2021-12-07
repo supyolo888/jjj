@@ -18,20 +18,5 @@ for (let i = 0; i < video.length; i++) {
   };
 };
 
-$(window)
-    .on('scroll resize', function () {
-        var windowScrollTop = $(window).scrollTop();
-        var windowInnerHeight = window.innerHeight;
-        var $video = $('video');
-        var videoTop = $('video').offset().top;
-        var videoHeight = $('video').innerHeight();
-        for (let i = 0; i < video.length; i++) {
-        if (!$video[i].paused && ((windowScrollTop + windowInnerHeight < videoTop) || (windowScrollTop > videoTop + videoHeight))) {
-            $video[i].pause();
-            play[i].classList.remove("none");
-        }
-      };
-    })
-    .trigger('scroll');
 
 
