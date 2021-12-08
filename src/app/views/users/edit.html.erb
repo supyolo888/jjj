@@ -21,7 +21,7 @@
       <% if @user.avatar? %>
         <%= image_tag @user.avatar.url, width: "100px", height: "100px", class:"icon iconedit"%>
       <% else%>
-        <%= image_tag "default_user.jpeg", width: "100px", height: "100px", class:"icon iconedit"%>
+        <%= image_tag "default_user.jpg", width: "100px", height: "100px", class:"icon iconedit"%>
       <% end %>
       
       <%= f.label :avatar, "Icon change", class:"iconchange" %>
