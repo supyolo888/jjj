@@ -12,7 +12,5 @@ module.exports = environment
 
 
 environment.config.merge({
-  performance: {
-    hints: false
-  }
+  devtool: 'cheap-source-map'
 })
