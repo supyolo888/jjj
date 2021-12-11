@@ -9,3 +9,10 @@ environment.plugins.prepend('Provide',
 )
 
 module.exports = environment
+
+
+environment.config.merge({
+  performance: {
+    hints: false
+  }
+})
