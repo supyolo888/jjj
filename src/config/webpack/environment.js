@@ -9,8 +9,3 @@ environment.plugins.prepend('Provide',
 )
 
 module.exports = environment
-
-
-environment.config.merge({
-  devtool: 'cheap-source-map'
-})
