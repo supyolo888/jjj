@@ -11,7 +11,7 @@
   <span class="content">
     <%if micropost.image.attached?%>
       <div class="playbtn" >
-        <video src="<%= rails_blob_path(micropost.image) %>#t=0.001" class="video" playsinline loop　preload="metadata"></video>
+        <video src="<%= rails_blob_path(micropost.image) %>#t=0.001" class="video" playsinline loop　preload="none"></video>
         <div class="play">
           <i class="fas fa-play"></i>
         </div>
