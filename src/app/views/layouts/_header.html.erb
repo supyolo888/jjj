@@ -15,7 +15,7 @@
             <% end %>
           </li>
           <li >
-            <div class="dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+            <%# <div class="dropdown-toggle" data-toggle="dropdown" tabindex="-1"> %>
               <% if current_user.avatar? %>
                 <%= image_tag(current_user.avatar.url, width: "35px", height: "35px", class:"icon iconheader")%>
               <% else%>
@@ -23,7 +23,7 @@
               <% end %>
               <b class="caret"></b>
             </div>
-            <ul class="dropdown-menu">
+            <%# <ul class="dropdown-menu"> %>
               <li>
                 <%= link_to current_user do%>
                   <i class="fas fa-user"></i> &nbsp;&nbsp; Profile
