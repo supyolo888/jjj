@@ -9,13 +9,12 @@ services:
       MYSQL_ROOT_PASSWORD: password
   web:
     build: .
-    command: bundle exec rails s -p 80 -b '0.0.0.0'
+    command: bundle exec rails s -p 443 -b '0.0.0.0'
     volumes:
       - ./src:/app
     ports:
       - "80:80"
     environment:
       RAILS_ENV: development
-      
     depends_on:
       - db
