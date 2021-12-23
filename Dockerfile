@@ -1,6 +1,5 @@
 FROM ruby:2.7.4
 
-ENV RAILS_SERVE_STATIC_FILES=true
 ENV RAILS_ENV=production
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
