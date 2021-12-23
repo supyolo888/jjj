@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7
+      - image: circleci/ruby:2.7.4
     working_directory: ~/jjj/src
     steps:
       - checkout:
@@ -46,7 +46,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/ruby:2.7
+      - image: circleci/ruby:2.7.4
     steps:
       - checkout
       - setup_remote_docker:
