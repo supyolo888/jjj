@@ -1,28 +1,29 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <% if @user.avatar? %>
-          <%= image_tag @user.avatar.url, width: "100px", height: "100px", class:"icon"%>
-        <% else%>
-          <%= image_tag "default_user.jpg", width: "100px", height: "100px", class:"icon"%>
-        <% end %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
+
+<div class="profile">
+  <div class="profileicon">
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar.url, width: "150px", height: "150px", class:"icon"%>
+    <% else%>
+      <%= image_tag "default_user.jpg", width: "150px", height: "150px", class:"icon"%>
     <% end %>
   </div>
+  <section class="stats">
+    <h3><%= @user.name %></h3>
+    <%= render 'shared/stats' %>
+    <h5>Microposts (<%= @user.microposts.count %>)</h5>
+  </section>
+</div>
+<%= render 'follow_form' if logged_in? %>
+<div class="profilecontent">
+<% if @user.microposts.any? %>
+  <% @microposts.each do |micropost| %>
+     <%if micropost.image.attached?%>
+      <a href="/micropost/<%=micropost.id%>" class="profilevideo" >
+        <video src="<%= rails_blob_path(micropost.image) %>#t=0.001" class="video" playsinline loop></video>
+          <i class="fas fa-play profileplay"></i>
+      </a>
+    <%end%>
+  <%end%>
+<% end %>
 </div>

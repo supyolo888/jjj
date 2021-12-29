@@ -20,6 +20,11 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def show 
+    @micropost = Micropost.find(params[:id])
+    render "/microposts/show"
+  end
+
   private
 
     def micropost_params
