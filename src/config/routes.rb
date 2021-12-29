@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
+  get "/micropost/:id", to: 'microposts#show'
 end

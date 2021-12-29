@@ -112,7 +112,7 @@ footer {
 
 /* sidebar */
 
-aside {
+
   section.user_info {
     margin-top: 20px;
   }
@@ -136,11 +136,13 @@ aside {
       margin-top: 0px;
     }
   }
-}
+
 
 .stats {
   overflow: auto;
-  margin-top: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 100px;
   padding: 0;
   a {
     float: left;
@@ -159,6 +161,64 @@ aside {
   strong {
     display: block;
   }
+}
+
+.profile {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  h3 {
+    margin-left: 100px;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+  h5 {
+    margin-left: 100px;
+    margin-top: 20px;
+    
+  }
+}
+
+.profileicon {
+  margin-left: 50px;
+}
+
+.profilecontent {
+  border-top: 1px solid #e8e8e8;
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  :hover {
+    filter: grayscale(30%);
+    .profileplay {
+      display:block
+    }
+    
+  }
+}
+.profileplay {
+  display:none;
+  pointer-events: none
+}
+
+.profilevideo {
+  position: relative;
+  width: 31%;
+  margin: 1%;
+}
+
+.profilevideo::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.profilevideo video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  object-fit: cover;
 }
 
 .user_avatars {
@@ -240,12 +300,12 @@ input {
     border-top: 1px solid #e8e8e8;
   }
   .user {
-    margin-top: 5em;
-    padding-top: 0;
+    display: block;
+    margin-top: 15px;
   }
   .content {
     display: block;
-    margin-left: 60px;
+    // margin-left: 60px;
     img {
       display: block;
       padding: 5px 0;
@@ -254,12 +314,13 @@ input {
   .timestamp {
     color: $gray-light;
     display: block;
-    margin-left: 60px;
+    // margin-left: 60px;
   }
   .icon {
     float: left;
     margin-right: 10px;
     margin-top: 5px;
+    margin-bottom: 10px;
   }
 }
 
@@ -301,7 +362,7 @@ span.image {
 
 .heart {
   color: rgb(255, 74, 74);
-  font-size: 25px;
+  font-size: 30px;
   animation: anime 1s;
 }
 
@@ -311,7 +372,7 @@ span.image {
   }
 
 .heart-empty {
-  font-size: 25px;
+  font-size: 30px;
   -webkit-text-stroke: 5px white
 }
 
@@ -321,7 +382,7 @@ span.image {
 
 .btn-like {
   position: relative;
-  left: 55px;
+  left: -5px;
 }
 
 .btn-like {
@@ -401,6 +462,7 @@ span.image {
 }
 .playbtn {
   position: relative;
+  width: 80%
 }
 
 .iconheader {

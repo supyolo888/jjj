@@ -1,0 +1,65 @@
+<div class="microposts">
+<li>
+  <% if @micropost.user.avatar? %>
+    <%= link_to image_tag(@micropost.user.avatar.url, width: "50px", height: "50px", class:"icon"),@micropost.user%>
+  <% else%>
+    <%= link_to image_tag("default_user.jpg", width: "50px", height: "50px", class:"icon"),@micropost.user%>
+  <% end %>
+
+  <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>
+
+  <span class="content">
+    <%if @micropost.image.attached?%>
+      <div class="playbtn" >
+        <video src="<%= rails_blob_path(@micropost.image) %>#t=0.001" class="video" playsinline loop></video>
+        <div class="play">
+          <i class="fas fa-play"></i>
+        </div>
+      </div>
+    <%end%>
+  </span>
+
+  <span class="like" id="like_form_<%= @micropost.id %>">
+    <% if @micropost.liked_by.include?(current_user) %>
+      <%= render "microposts/unlike", micropost: @micropost %>
+    <% else %>
+      <%= render "microposts/like", micropost: @micropost %>
+    <% end %>
+  </span>
+
+  <span class="content">
+    <%= @micropost.content %>
+  </span>  
+
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
+    <% if current_user?(@micropost.user) %>
+      <%= link_to "delete", @micropost, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>  
+  </li>
+</div>
+
+
+<script>
+var playbtn = document.querySelectorAll('.playbtn');
+var video = document.querySelectorAll('.video');
+var play = document.querySelectorAll('.play');
+
+for (let i = 0; i < video.length; i++) {
+  playbtn[i].onclick = function() {
+    if (video[i].paused) {
+      for (let n = 0; n < video.length; n++) {
+        video[n].pause();
+        play[n].classList.remove("none");
+        }
+        video[i].play();
+        play[i].classList.add("none");
+    } else {
+        video[i].pause();
+        play[i].classList.remove("none");
+    }
+  };
+};
+</script>
