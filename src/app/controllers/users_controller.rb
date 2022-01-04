@@ -13,11 +13,17 @@ class UsersController < ApplicationController
       @title = "All users"
     end
     @users = @q.result.paginate(page: params[:page])
+    if logged_in?
+      @micropost  = current_user.microposts.build
+    end
   end
 
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    if logged_in?
+      @micropost  = current_user.microposts.build
+    end
   end
 
   def new
@@ -37,6 +43,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if logged_in?
+      @micropost  = current_user.microposts.build
+    end
   end
 
   def update
@@ -59,6 +68,9 @@ class UsersController < ApplicationController
     @title = "Following"
     @user  = User.find(params[:id])
     @users = @user.following.paginate(page: params[:page])
+    if logged_in?
+      @micropost  = current_user.microposts.build
+    end
     render 'show_follow'
   end
 
@@ -66,6 +78,9 @@ class UsersController < ApplicationController
     @title = "Followers"
     @user  = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
+    if logged_in?
+      @micropost  = current_user.microposts.build
+    end
     render 'show_follow'
   end
 
@@ -73,6 +88,9 @@ class UsersController < ApplicationController
     @title = "Likes"
     @user  = User.find(params[:id])
     @microposts = @user.likes.paginate(page: params[:page])
+    if logged_in?
+      @micropost  = current_user.microposts.build
+    end
     render 'show_like'
   end
 

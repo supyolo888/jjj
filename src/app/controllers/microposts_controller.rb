@@ -10,7 +10,10 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       @feed_items = current_user.feed.paginate(page: params[:page])
-      render 'static_pages/home'
+      if @micropost.errors.full_messages.any?
+        flash[:danger] = "Error.<br>・#{@micropost.errors.full_messages.join('<br>・')}"
+      end
+      redirect_to root_path
     end
   end
 
@@ -21,8 +24,10 @@ class MicropostsController < ApplicationController
   end
 
   def show 
-    @micropost = Micropost.find(params[:id])
-    render "/microposts/show"
+    if logged_in?
+      @micropost  = current_user.microposts.build
+    end
+    @post = Micropost.find(params[:id])
   end
 
   private

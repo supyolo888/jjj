@@ -5,12 +5,17 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <li>
-            <%= link_to root_path do%>
+            <div id="postopen" class="iconmenu">
+              <i class="far fa-plus-square"></i>
+            </div>
+          </li>
+          <li>
+            <%= link_to root_path , class:"iconmenu" do%>
               <i class="fas fa-home"></i>
             <% end %>
           </li>
           <li>
-            <%= link_to users_path do %>
+            <%= link_to users_path , class:"iconmenu" do %>
               <i class="fas fa-users"></i>
             <% end %>
           </li>

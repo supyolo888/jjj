@@ -1,17 +1,17 @@
 <div class="microposts">
 <li>
-  <% if @micropost.user.avatar? %>
-    <%= link_to image_tag(@micropost.user.avatar.url, width: "50px", height: "50px", class:"icon"),@micropost.user%>
+  <% if @post.user.avatar? %>
+    <%= link_to image_tag(@post.user.avatar.url, width: "50px", height: "50px", class:"icon"),@post.user%>
   <% else%>
-    <%= link_to image_tag("default_user.jpg", width: "50px", height: "50px", class:"icon"),@micropost.user%>
+    <%= link_to image_tag("default_user.jpg", width: "50px", height: "50px", class:"icon"),@post.user%>
   <% end %>
 
-  <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>
+  <span class="user"><%= link_to @post.user.name, @post.user %></span>
 
   <span class="content">
-    <%if @micropost.image.attached?%>
+    <%if @post.image.attached?%>
       <div class="playbtn" >
-        <video src="<%= rails_blob_path(@micropost.image) %>#t=0.001" class="video" playsinline loop></video>
+        <video src="<%= rails_blob_path(@post.image) %>#t=0.001" class="video" playsinline loop></video>
         <div class="play">
           <i class="fas fa-play"></i>
         </div>
@@ -19,22 +19,22 @@
     <%end%>
   </span>
 
-  <span class="like" id="like_form_<%= @micropost.id %>">
-    <% if @micropost.liked_by.include?(current_user) %>
-      <%= render "microposts/unlike", micropost: @micropost %>
+  <span class="like" id="like_form_<%= @post.id %>">
+    <% if @post.liked_by.include?(current_user) %>
+      <%= render "microposts/unlike", micropost: @post %>
     <% else %>
-      <%= render "microposts/like", micropost: @micropost %>
+      <%= render "microposts/like", micropost: @post %>
     <% end %>
   </span>
 
   <span class="content">
-    <%= @micropost.content %>
+    <%= @post.content %>
   </span>  
 
   <span class="timestamp">
-    Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
-    <% if current_user?(@micropost.user) %>
-      <%= link_to "delete", @micropost, method: :delete,
+    Posted <%= time_ago_in_words(@post.created_at) %> ago.
+    <% if current_user?(@post.user) %>
+      <%= link_to "delete", @post, method: :delete,
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>  

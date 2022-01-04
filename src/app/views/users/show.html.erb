@@ -19,7 +19,7 @@
 <% if @user.microposts.any? %>
   <% @microposts.each do |micropost| %>
      <%if micropost.image.attached?%>
-      <a href="/micropost/<%=micropost.id%>" class="profilevideo" >
+      <a href="/microposts/<%=micropost.id%>" class="profilevideo" >
         <video src="<%= rails_blob_path(micropost.image) %>#t=0.001" class="video" playsinline loop></video>
           <i class="fas fa-play profileplay"></i>
       </a>
