@@ -80,8 +80,8 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     :port           => 587,
     :address        => 'smtp.gmail.com',
-    :user_name      => 'supyolo888@gmail.com',
-    :password       => 'ddhqfuiuhuopyige',
+    :user_name      => ENV['MAIL_USERNAME'],
+    :password       => ENV['MAIL_PASSWORD'],
     :domain         => 'gmail.com',
     :authentication => :plain,
   }
