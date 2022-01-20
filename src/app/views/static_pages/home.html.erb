@@ -1,6 +1,7 @@
 <% if logged_in? %>
   <%= render 'shared/feed' %>
 <% else %>
+  <%= render 'layouts/login' %>
   <div class="center jumbotron">
     <h1>Welcome to the Sample App</h1>
 
@@ -9,9 +10,28 @@
       <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
       sample application.
     </h2>
-
-    <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
-    <h4>or</h4>
-    <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary" %>
+    <div class="btn btn-lg btn-primary", id="loginopen">
+    Login
+    </div>
+    <h5><a href="/signup">Sign up</a></h5>
   </div>
 <% end %>
+
+<script>
+$(function(){
+$("#loginopen").click(function(){
+  $("#loginlogin").fadeIn();
+  $('body').css('overflow-y', 'hidden');
+})
+$(".closemodal").click(function(){
+  $("#loginlogin").fadeOut();
+  $('body').css('overflow-y','auto'); 
+})
+});
+$(document).on('click touchend', function(event) {
+  if (!$(event.target).closest('#loginloginlogin, #loginopen').length) {
+    $('#loginlogin').fadeOut();
+    $('body').css('overflow-y','auto'); 
+  }
+});
+</script>

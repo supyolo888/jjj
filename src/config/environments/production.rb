@@ -76,13 +76,13 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'dockerjjj.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = { host: 'https://www.onemake.bar' }
   ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => host,
+    :port           => 587,
+    :address        => 'smtp.gmail.com',
+    :user_name      => 'supyolo888@gmail.com',
+    :password       => 'ddhqfuiuhuopyige',
+    :domain         => 'gmail.com',
     :authentication => :plain,
   }
   # Ignore bad email addresses and do not raise email delivery errors.

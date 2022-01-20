@@ -20,6 +20,12 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+.left {
+  float:left;
+  margin-top:-20px;
+  margin-bottom: 20px;
+}
+
 
 
 /* universal */
@@ -474,51 +480,61 @@ span.image {
 
 /* Modal */
 
-#postpost {
+.modal-back {
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
   display: none;
 }
 
-#postpostpost {
-  position: absolute;
-  top: 20%;
-  left: 20%;
-  background-color: #e6ecf0;
-  padding: 20px 0 40px;
-  border-radius: 10px;
-  width: 700px;
-  height: 500px;
+.modal-main {
+  background:#cccccc;
+  width: 70%;
+  height: 70%;
+  margin:0 auto;
   text-align: center;
+  padding:20px;
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform:translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+}
+
+.modal-inner {
+   position: absolute;  
+   top: 50%;  
+   left: 50%;
+   transform: translateY(-50%) translateX(-50%);  
+   width: 80%;
 }
 
 .closemodal {
   position: absolute;
   top: 10px;
-  right: 15px;
+  right: 20px;
   color: rgba(128, 128, 128, 0.46);
   cursor: pointer;
   font-size :30px
 }
 
-.micropost_form {
-  position: absolute;
-  top: 70px;
-  left: 100px;
-  width: 70%;
+.no_scroll {
+  overflow: hidden;
+}
+
+#micropost_form {
   textarea {
     height: 200px;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 10px;
     font-size: 20px;
   }
 }
 
-.no_scroll {
-  overflow: hidden;
-}

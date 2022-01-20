@@ -1,10 +1,11 @@
-<div id="postpost">
-  <div id="postpostpost" >
+<div id="postpost" class="modal-back">
+  <div id="postpostpost" class="modal-main">
     <div class="closemodal">
       <i class="fas fa-times"></i>
     </div>
+    <div class="modal-inner">
     <h1>Create micropost</h1>
-    <section class="micropost_form">
+    <section id="micropost_form">
       <%= form_with(model: @micropost, local: true) do |f| %>
         <div class="field">
           <%= f.text_area :content, placeholder: "Compose new micropost..." %>
@@ -12,9 +13,13 @@
         <span class="image">
           <%= f.file_field :image, accept: "video/mp4" %>
         </span>
+        <div class="left">
+          <h5>mp4 only,&nbsp;&nbsp;&nbsp;Less than 100MB</h5>
+        </div>
         <%= f.submit "Post", class: "btn btn-primary" %>
       <% end %>
     </section>
+    </div>
   </div>
 </div>
 
@@ -22,7 +27,7 @@
   $("#micropost_image").bind("change", function() {
     var size_in_megabytes = this.files[0].size/1024/1024;
     if (size_in_megabytes > 100) {
-      alert("Maximum file size is 5MB. Please choose a smaller file.");
+      alert("Maximum file size is 100MB. Please choose a smaller file.");
       $("#micropost_image").val("");
     }
   });
